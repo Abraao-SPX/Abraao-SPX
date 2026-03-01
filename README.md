@@ -1,14 +1,16 @@
 # 👩🏻‍💻 Abraão Paixão
 
-**`Desenvolvedor FullStack`**
+**`Developer FullStack`**
 
-Me chamo Abraão Paixão, tenho 18 anos e sou natural de Sergipe. Sou um entusiasta da programação e apaixonado por tecnologia, com um foco especial no desenvolvimento back-end.
-Atualmente, estou cursando Análise e Desenvolvimento de Sistemas. Me dedico bastante, projetando um futuro agradável para mim, e estou em pleno processo de desenvolvimento para progredir nesse meio. Meu objetivo é focar na criação de códigos limpos e sistemas robustos que tragam uma experiência funcional e agradável aos usuários.
+My name is Abraão Paixão, I am 18 years old and I am from Sergipe. I'm a programming enthusiast and passionate about technology, with a special focus on back-end development. I am currently studying Systems Analysis and Development. I dedicate myself a lot, designing a pleasant future for myself, and I am in the process of developing to progress in this area. My goal is to focus on creating clean code and robust systems that provide a functional and enjoyable user experience.
+
 
 
 ---
 
-### 🤖 Linguagens e Tecnologias
+### 🤖 Languages and Technologies
+
+
 
 ---
 
@@ -113,7 +115,7 @@ Atualmente, estou cursando Análise e Desenvolvimento de Sistemas. Me dedico bas
 <br/>
 <br/>
 
-### 📊 Estatísticas
+### 📊 Statistics
 
 <p>
  <p align="center">
