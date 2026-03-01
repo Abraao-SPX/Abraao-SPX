@@ -116,18 +116,11 @@ Atualmente, estou cursando Análise e Desenvolvimento de Sistemas. Me dedico bas
 ### 📊 Estatísticas
 
 <p>
-  <img 
-    align="left" 
-    alt="GitHub statistics card showing commits, pull requests, and contribution metrics for Larissakich" 
-    height="200" 
-    style="padding-right: 10px;" 
-    src="https://github-readme-stats.vercel.app/api?username=Abraao-SPX&show_icons=true&theme=tokyonight&locale=pt-br"
-  />
+ <p align="center">
+<a href="https://github.com/GabrielVacirca">
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=Abraao-SPX&show_icons=true&theme=algolia&include_all_commits=true&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=Abraao-SPX&layout=compact&langs_count=8&theme=algolia"/>
+</a>
+</p>
 
-  <img 
-    align="left" 
-    alt="Top programming languages chart displaying most used languages and their percentages for Larissakich" 
-    height="200" 
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=Abraao-SPX&theme=tokyonight&layout=compact&custom_title=Tecnologias&langs_count=9&locale=pt-br" 
-  />
 </p>
