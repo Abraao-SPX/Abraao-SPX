@@ -2,7 +2,7 @@
 
 **`Developer FullStack`**
 
-My name is Abraão Paixão, I am 18 years old and I am from Sergipe. I'm a programming enthusiast and passionate about technology, with a special focus on back-end development. I am currently studying Systems Analysis and Development. I dedicate myself a lot, designing a pleasant future for myself, and I am in the process of developing to progress in this area. My goal is to focus on creating clean code and robust systems that provide a functional and enjoyable user experience.
+My name is Abraão Paixão, I am 19 years old and I am from Sergipe. I'm a programming enthusiast and passionate about technology, with a special focus on back-end development. I am currently studying Systems Analysis and Development. I dedicate myself a lot, designing a pleasant future for myself, and I am in the process of developing to progress in this area. My goal is to focus on creating clean code and robust systems that provide a functional and enjoyable user experience.
 
 
 
