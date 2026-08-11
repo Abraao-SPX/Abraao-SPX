@@ -14,7 +14,7 @@
 [![Portfolio](https://img.shields.io/badge/Portfolio-abraao--dev.tech-7c3aed?style=for-the-badge&logo=google-chrome&logoColor=white)](https://abraao-dev.tech/)
 [![PrintWeb](https://img.shields.io/badge/PrintWeb.me-Projeto%20Web-00d4aa?style=for-the-badge&logo=google-chrome&logoColor=white)](https://printweb.me)
 [![GitHub](https://img.shields.io/badge/GitHub-Abraao--SPX-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Abraao-SPX)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Conectar-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abraaopaixao/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Conectar-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abraaospx/)
 
 <br/>
 
@@ -77,6 +77,9 @@ status: Sempre aprendendo e evoluindo 🚀
 
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 
 ### 🔧 Ferramentas & DevOps
 <br/>
@@ -254,8 +257,8 @@ status: Sempre aprendendo e evoluindo 🚀
 
 <a href="https://abraao-dev.tech/"><img src="https://img.shields.io/badge/Website-abraao--dev.tech-7c3aed?style=for-the-badge&logo=google-chrome&logoColor=white"/></a>
 <a href="https://printweb.me"><img src="https://img.shields.io/badge/PrintWeb.me-00d4aa?style=for-the-badge&logo=google-chrome&logoColor=white"/></a>
-<a href="mailto:abraaopaixao.dev@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
-<a href="https://www.linkedin.com/in/abraaopaixao/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+<a href="mailto:abraao.aspx@hotmail.com"><img src="https://img.shields.io/badge/Email-0078D4?style=for-the-badge&logo=microsoftoutlook&logoColor=white"/></a>
+<a href="https://www.linkedin.com/in/abraaospx/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
 
 <br/><br/>
 
