@@ -24,17 +24,14 @@ jobs:
           template: classic
           filename: github-metrics.svg
           config_timezone: America/Maceio
-          config_display: large
           config_octicon: true
           config_twemoji: true
-          base: header, activity, community, repositories, metadata
+          base: header
           plugin_languages: true
-          plugin_languages_limit: 8
+          plugin_languages_limit: 5
           plugin_languages_sections: most-used
           plugin_languages_details: percentage
           plugin_languages_colors: github
-          plugin_isocalendar: true
-          plugin_isocalendar_duration: half-year
 
   snake:
     name: Gerar animacao de contribuicoes
@@ -52,6 +49,6 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v4
         with:
           build_dir: dist
-          branch: output
+          target_branch: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

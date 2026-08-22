@@ -220,11 +220,7 @@ status: Sempre aprendendo e evoluindo 🚀
 
 <div align="center">
 
-  <img width="90%" src="./github-metrics.svg" alt="Métricas do perfil de Abraão Paixão"/>
-
-  <br/><br/>
-
-  <img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=Abraao-SPX&bg_color=0d1117&color=7c3aed&line=7c3aed&point=ffffff&area=true&area_color=7c3aed&hide_border=true" alt="Gráfico de contribuições de Abraão Paixão"/>
+  <img width="70%" src="./github-metrics.svg" alt="Resumo do perfil de Abraão Paixão"/>
 
 </div>
 
@@ -236,9 +232,9 @@ status: Sempre aprendendo e evoluindo 🚀
 <div align="center">
   <h3>🐍 Minhas contribuições</h3>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Abraao-SPX/Abraao-SPX/output/github-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Abraao-SPX/Abraao-SPX/output/github-snake.svg" />
-    <img alt="github-snake" src="https://raw.githubusercontent.com/Abraao-SPX/Abraao-SPX/output/github-snake.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Abraao-SPX/Abraao-SPX/gh-pages/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Abraao-SPX/Abraao-SPX/gh-pages/github-snake.svg" />
+    <img alt="github-snake" src="https://raw.githubusercontent.com/Abraao-SPX/Abraao-SPX/gh-pages/github-snake.svg" />
   </picture>
 </div>
 
