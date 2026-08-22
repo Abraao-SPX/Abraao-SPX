@@ -220,16 +220,11 @@ status: Sempre aprendendo e evoluindo 🚀
 
 <div align="center">
 
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Abraao-SPX&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0d1117&title_color=7c3aed&icon_color=7c3aed&text_color=c9d1d9"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Abraao-SPX&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=7c3aed&text_color=c9d1d9"/>
+  <img width="90%" src="./github-metrics.svg" alt="Métricas do perfil de Abraão Paixão"/>
 
   <br/><br/>
 
-  <img width="90%" src="https://github-readme-streak-stats.herokuapp.com/?user=Abraao-SPX&theme=tokyonight&hide_border=true&background=0D1117&ring=7c3aed&fire=7c3aed&currStreakLabel=7c3aed"/>
-
-  <br/><br/>
-
-  <img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=Abraao-SPX&bg_color=0d1117&color=7c3aed&line=7c3aed&point=ffffff&area=true&area_color=7c3aed&hide_border=true"/>
+  <img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=Abraao-SPX&bg_color=0d1117&color=7c3aed&line=7c3aed&point=ffffff&area=true&area_color=7c3aed&hide_border=true" alt="Gráfico de contribuições de Abraão Paixão"/>
 
 </div>
 
@@ -239,6 +234,7 @@ status: Sempre aprendendo e evoluindo 🚀
 
 <!-- SNAKE ANIMATION -->
 <div align="center">
+  <h3>🐍 Minhas contribuições</h3>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Abraao-SPX/Abraao-SPX/output/github-snake-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Abraao-SPX/Abraao-SPX/output/github-snake.svg" />
