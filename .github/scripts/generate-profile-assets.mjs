@@ -245,9 +245,9 @@ function renderContributions({ days, total }) {
   const { current, longest } = calculateStreaks(days);
   const cellColors = ["#21262d", "#2e1065", "#4c1d95", "#7c3aed", "#c4b5fd"];
   const start = new Date(`${days[0].date}T00:00:00Z`);
-  const heatmapX = 82;
+  const heatmapX = 70;
   const heatmapY = 82;
-  const step = 14;
+  const step = 15;
 
   const cells = days
     .map((day) => {
@@ -257,7 +257,7 @@ function renderContributions({ days, total }) {
       const weekday = date.getUTCDay();
       const x = heatmapX + week * step;
       const y = heatmapY + weekday * step;
-      return `<rect x="${x}" y="${y}" width="11" height="11" rx="2.5" fill="${cellColors[day.level]}" data-date="${day.date}"/>`;
+      return `<rect x="${x}" y="${y}" width="13" height="13" rx="3" fill="${cellColors[day.level]}" data-date="${day.date}"/>`;
     })
     .join("");
 
@@ -270,16 +270,16 @@ function renderContributions({ days, total }) {
     if (date.getUTCDate() <= 7 && !shownMonths.has(key)) {
       const difference = Math.round((date - start) / 86_400_000);
       const x = heatmapX + Math.floor(difference / 7) * step;
-      if (x < 835) months.push(`<text x="${x}" y="70" class="month">${monthNames[date.getUTCMonth()]}</text>`);
+      if (x < 850) months.push(`<text x="${x}" y="70" class="month">${monthNames[date.getUTCMonth()]}</text>`);
       shownMonths.add(key);
     }
   }
 
   const legend = cellColors
-    .map((color, index) => `<rect x="${775 + index * 14}" y="213" width="9" height="9" rx="2" fill="${color}"/>`)
+    .map((color, index) => `<rect x="${775 + index * 14}" y="225" width="9" height="9" rx="2" fill="${color}"/>`)
     .join("");
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="238" viewBox="0 0 900 238" role="img" aria-labelledby="title description">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="250" viewBox="0 0 900 250" role="img" aria-labelledby="title description">
     <title id="title">Contribuições de Abraão Paixão</title>
     <desc id="description">Mapa das contribuições realizadas nos últimos 365 dias.</desc>
     <style>
@@ -290,20 +290,24 @@ function renderContributions({ days, total }) {
       .footer{fill:#8b949e;font-size:10px}
       .legend{fill:#6e7681;font-size:9px}
     </style>
-    <rect x=".5" y=".5" width="899" height="237" rx="8" fill="#0d1117" stroke="#30363d"/>
-    <text x="28" y="34" class="heading">Contribuições</text>
-    <text x="872" y="34" text-anchor="end" class="summary"><tspan fill="#a78bfa" font-weight="600">${xml(compactNumber(total))}</tspan> no último ano</text>
+    <rect x=".5" y=".5" width="899" height="249" rx="8" fill="#0d1117" stroke="#30363d"/>
+    <text x="28" y="34" class="heading">Contribuições no último ano</text>
+    <text x="872" y="34" text-anchor="end" class="summary"><tspan fill="#a78bfa" font-size="15" font-weight="600">${xml(compactNumber(total))}</tspan> contribuições</text>
     <line x1="28" y1="49" x2="872" y2="49" stroke="#21262d"/>
+    <rect x="28" y="57" width="844" height="139" rx="6" fill="#161b22" fill-opacity=".42"/>
     ${months.join("")}
-    <text x="50" y="103" class="day">SEG</text>
-    <text x="50" y="131" class="day">QUA</text>
-    <text x="50" y="159" class="day">SEX</text>
+    <text x="39" y="103" class="day">SEG</text>
+    <text x="39" y="133" class="day">QUA</text>
+    <text x="39" y="163" class="day">SEX</text>
     ${cells}
-    <line x1="28" y1="196" x2="872" y2="196" stroke="#21262d"/>
-    <text x="28" y="221" class="footer">Sequência atual: ${current} dias  ·  Maior sequência: ${longest} dias</text>
-    <text x="735" y="221" class="legend">menos</text>
+    <line x1="28" y1="208" x2="872" y2="208" stroke="#21262d"/>
+    <circle cx="32" cy="229" r="3" fill="#7c3aed"/>
+    <text x="42" y="233" class="footer">Sequência atual: ${current} dias</text>
+    <circle cx="190" cy="229" r="3" fill="#a78bfa"/>
+    <text x="200" y="233" class="footer">Maior sequência: ${longest} dias</text>
+    <text x="735" y="233" class="legend">menos</text>
     ${legend}
-    <text x="871" y="221" text-anchor="end" class="legend">mais</text>
+    <text x="871" y="233" text-anchor="end" class="legend">mais</text>
   </svg>`;
 }
 
@@ -330,7 +334,7 @@ await Promise.all([
     renderStats({ user, languages, calendar }),
   ),
   writeFile(
-    new URL("contribution-constellation.svg", outputDirectory),
+    new URL("github-contributions.svg", outputDirectory),
     renderContributions(calendar),
   ),
 ]);

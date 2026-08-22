@@ -224,7 +224,7 @@ status: Sempre aprendendo e evoluindo 🚀
 
 <br/>
 
-  <img width="100%" src="./assets/contribution-constellation.svg" alt="Contribuições de Abraão Paixão nos últimos 365 dias"/>
+  <img width="100%" src="./assets/github-contributions.svg" alt="Contribuições de Abraão Paixão nos últimos 365 dias"/>
 
 </div>
 
