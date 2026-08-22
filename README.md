@@ -215,27 +215,17 @@ status: Sempre aprendendo e evoluindo 🚀
 
 ---
 
-<!-- GITHUB STATS SECTION -->
-## 📊 Estatísticas do GitHub
+<!-- CODE PULSE SECTION -->
+## ⚡ Pulso do Código
 
 <div align="center">
 
-  <img width="70%" src="./github-metrics.svg" alt="Resumo do perfil de Abraão Paixão"/>
+  <img width="100%" src="./assets/profile-stats.svg" alt="Painel GitHub personalizado de Abraão Paixão"/>
 
-</div>
+<br/><br/>
 
-<br/>
+  <img width="100%" src="./assets/contribution-constellation.svg" alt="Constelação das contribuições de Abraão Paixão nos últimos 365 dias"/>
 
----
-
-<!-- SNAKE ANIMATION -->
-<div align="center">
-  <h3>🐍 Minhas contribuições</h3>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Abraao-SPX/Abraao-SPX/gh-pages/github-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Abraao-SPX/Abraao-SPX/gh-pages/github-snake.svg" />
-    <img alt="github-snake" src="https://raw.githubusercontent.com/Abraao-SPX/Abraao-SPX/gh-pages/github-snake.svg" />
-  </picture>
 </div>
 
 <br/>
