@@ -17,23 +17,20 @@
     <line x1="28" y1="52" x2="872" y2="52" stroke="#21262d"/>
     
         <g transform="translate(55 74)">
-
           <text y="27" class="metric">531</text>
           <text y="48" class="label">Contribuições · 12 meses</text>
         </g>
-        <g transform="translate(350 74)">
-          <line x1="-35" y1="0" x2="-35" y2="54" stroke="#30363d"/>
+        <g transform="translate(350 74)"><line x1="-35" y1="0" x2="-35" y2="54" stroke="#30363d"/>
           <text y="27" class="metric">4 dias</text>
           <text y="48" class="label">Sequência atual</text>
         </g>
-        <g transform="translate(645 74)">
-          <line x1="-35" y1="0" x2="-35" y2="54" stroke="#30363d"/>
+        <g transform="translate(645 74)"><line x1="-35" y1="0" x2="-35" y2="54" stroke="#30363d"/>
           <text y="27" class="metric">13</text>
           <text y="48" class="label">Repositórios públicos</text>
         </g>
     <text x="28" y="151" class="section">Linguagens mais usadas</text>
     <rect x="28" y="169" width="844" height="7" fill="#21262d"/>
-    <rect x="28.0" y="169" width="386.2" height="7" fill="#f7df1e"/><rect x="415.2" y="169" width="154.5" height="7" fill="#3178c6"/><rect x="570.7" y="169" width="102.9" height="7" fill="#e34f26"/><rect x="674.6" y="169" width="85.3" height="7" fill="#f89820"/><rect x="760.9" y="169" width="111.1" height="7" fill="#475569"/>
+    <rect x="28.0" y="169" width="386.6" height="7" fill="#f7df1e"/><rect x="415.6" y="169" width="154.5" height="7" fill="#3178c6"/><rect x="571.0" y="169" width="103.0" height="7" fill="#e34f26"/><rect x="675.0" y="169" width="85.2" height="7" fill="#f89820"/><rect x="761.2" y="169" width="110.8" height="7" fill="#475569"/>
     
         <g transform="translate(28.0 202)">
           <circle cx="4" cy="-3" r="3.5" fill="#f7df1e"/>

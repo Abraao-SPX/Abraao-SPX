@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 
 const username = "Abraao-SPX";
 const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
@@ -89,6 +89,28 @@ async function getLanguages(repositories) {
     featured.push({ name: "Outras", percentage: otherPercentage, color: "#475569" });
   }
   return featured;
+}
+
+async function getCachedProfileData() {
+  const svg = await readFile(new URL("profile-stats.svg", outputDirectory), "utf8");
+  const repositoryMatch = svg.match(
+    /class="metric">([^<]+)<\/text>\s*<text[^>]*class="label">Repositórios públicos/i,
+  );
+  const languages = [...svg.matchAll(
+    /<circle[^>]*fill="([^"]+)"\/>\s*<text[^>]*class="language">([^<]+)<\/text>\s*<text[^>]*class="percentage">([\d,.]+)%<\/text>/g,
+  )].map((match) => ({
+    color: match[1],
+    name: match[2],
+    percentage: Number(match[3].replace(",", ".")),
+  }));
+
+  if (!repositoryMatch || !languages.length) {
+    throw new Error("Nao foi possivel aproveitar os dados locais anteriores.");
+  }
+  return {
+    user: { public_repos: Number(repositoryMatch[1]) },
+    languages,
+  };
 }
 
 async function getContributionCalendar() {
@@ -223,9 +245,9 @@ function renderContributions({ days, total }) {
   const { current, longest } = calculateStreaks(days);
   const cellColors = ["#21262d", "#2e1065", "#4c1d95", "#7c3aed", "#c4b5fd"];
   const start = new Date(`${days[0].date}T00:00:00Z`);
-  const heatmapX = 112;
-  const heatmapY = 73;
-  const step = 12;
+  const heatmapX = 82;
+  const heatmapY = 82;
+  const step = 14;
 
   const cells = days
     .map((day) => {
@@ -235,7 +257,7 @@ function renderContributions({ days, total }) {
       const weekday = date.getUTCDay();
       const x = heatmapX + week * step;
       const y = heatmapY + weekday * step;
-      return `<rect x="${x}" y="${y}" width="9" height="9" rx="2" fill="${cellColors[day.level]}" data-date="${day.date}"/>`;
+      return `<rect x="${x}" y="${y}" width="11" height="11" rx="2.5" fill="${cellColors[day.level]}" data-date="${day.date}"/>`;
     })
     .join("");
 
@@ -248,16 +270,16 @@ function renderContributions({ days, total }) {
     if (date.getUTCDate() <= 7 && !shownMonths.has(key)) {
       const difference = Math.round((date - start) / 86_400_000);
       const x = heatmapX + Math.floor(difference / 7) * step;
-      if (x < 835) months.push(`<text x="${x}" y="64" class="month">${monthNames[date.getUTCMonth()]}</text>`);
+      if (x < 835) months.push(`<text x="${x}" y="70" class="month">${monthNames[date.getUTCMonth()]}</text>`);
       shownMonths.add(key);
     }
   }
 
   const legend = cellColors
-    .map((color, index) => `<rect x="${775 + index * 14}" y="180" width="9" height="9" rx="2" fill="${color}"/>`)
+    .map((color, index) => `<rect x="${775 + index * 14}" y="213" width="9" height="9" rx="2" fill="${color}"/>`)
     .join("");
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="205" viewBox="0 0 900 205" role="img" aria-labelledby="title description">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="238" viewBox="0 0 900 238" role="img" aria-labelledby="title description">
     <title id="title">Contribuições de Abraão Paixão</title>
     <desc id="description">Mapa das contribuições realizadas nos últimos 365 dias.</desc>
     <style>
@@ -268,30 +290,40 @@ function renderContributions({ days, total }) {
       .footer{fill:#8b949e;font-size:10px}
       .legend{fill:#6e7681;font-size:9px}
     </style>
-    <rect x=".5" y=".5" width="899" height="204" rx="8" fill="#0d1117" stroke="#30363d"/>
+    <rect x=".5" y=".5" width="899" height="237" rx="8" fill="#0d1117" stroke="#30363d"/>
     <text x="28" y="34" class="heading">Contribuições</text>
-    <text x="872" y="34" text-anchor="end" class="summary">${xml(compactNumber(total))} no último ano</text>
+    <text x="872" y="34" text-anchor="end" class="summary"><tspan fill="#a78bfa" font-weight="600">${xml(compactNumber(total))}</tspan> no último ano</text>
     <line x1="28" y1="49" x2="872" y2="49" stroke="#21262d"/>
     ${months.join("")}
-    <text x="82" y="92" class="day">SEG</text>
-    <text x="82" y="116" class="day">QUA</text>
-    <text x="82" y="140" class="day">SEX</text>
+    <text x="50" y="103" class="day">SEG</text>
+    <text x="50" y="131" class="day">QUA</text>
+    <text x="50" y="159" class="day">SEX</text>
     ${cells}
-    <text x="28" y="188" class="footer">Sequência atual: ${current} dias  ·  Maior sequência: ${longest} dias</text>
-    <text x="735" y="188" class="legend">menos</text>
+    <line x1="28" y1="196" x2="872" y2="196" stroke="#21262d"/>
+    <text x="28" y="221" class="footer">Sequência atual: ${current} dias  ·  Maior sequência: ${longest} dias</text>
+    <text x="735" y="221" class="legend">menos</text>
     ${legend}
-    <text x="871" y="188" text-anchor="end" class="legend">mais</text>
+    <text x="871" y="221" text-anchor="end" class="legend">mais</text>
   </svg>`;
 }
 
-const [user, repositories, calendar] = await Promise.all([
+await mkdir(outputDirectory, { recursive: true });
+const calendar = await getContributionCalendar();
+const [userResult, repositoriesResult] = await Promise.allSettled([
   request(`https://api.github.com/users/${username}`),
   getRepositories(),
-  getContributionCalendar(),
 ]);
-const languages = await getLanguages(repositories);
 
-await mkdir(outputDirectory, { recursive: true });
+let user;
+let languages;
+if (userResult.status === "fulfilled" && repositoriesResult.status === "fulfilled") {
+  user = userResult.value;
+  languages = await getLanguages(repositoriesResult.value);
+} else {
+  console.warn("API limitada; usando as estatisticas locais mais recentes.");
+  ({ user, languages } = await getCachedProfileData());
+}
+
 await Promise.all([
   writeFile(
     new URL("profile-stats.svg", outputDirectory),
