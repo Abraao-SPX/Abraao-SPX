@@ -215,16 +215,16 @@ status: Sempre aprendendo e evoluindo 🚀
 
 ---
 
-<!-- CODE PULSE SECTION -->
-## ⚡ Pulso do Código
+<!-- GITHUB STATS SECTION -->
+## 📊 Estatísticas do GitHub
 
 <div align="center">
 
-  <img width="100%" src="./assets/profile-stats.svg" alt="Painel GitHub personalizado de Abraão Paixão"/>
+  <img width="92%" src="./assets/profile-stats.svg" alt="Estatísticas do GitHub de Abraão Paixão"/>
 
-<br/><br/>
+<br/>
 
-  <img width="100%" src="./assets/contribution-constellation.svg" alt="Constelação das contribuições de Abraão Paixão nos últimos 365 dias"/>
+  <img width="92%" src="./assets/contribution-constellation.svg" alt="Contribuições de Abraão Paixão nos últimos 365 dias"/>
 
 </div>
 

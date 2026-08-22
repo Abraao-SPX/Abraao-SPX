@@ -1,104 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="294" viewBox="0 0 960 294" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="230" viewBox="0 0 900 230" role="img" aria-labelledby="title description">
     <title id="title">Painel GitHub de Abraão Paixão</title>
     <desc id="description">Resumo de contribuições, sequência atual, repositórios e linguagens mais utilizadas.</desc>
-    
-    <defs>
-      <linearGradient id="stats-background" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#0b0d16"/>
-        <stop offset="0.52" stop-color="#111426"/>
-        <stop offset="1" stop-color="#0b1220"/>
-      </linearGradient>
-      <linearGradient id="stats-accent" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="#7c3aed"/>
-        <stop offset="0.52" stop-color="#a855f7"/>
-        <stop offset="1" stop-color="#22d3ee"/>
-      </linearGradient>
-      <radialGradient id="stats-aura" cx="0" cy="0" r="1" gradientTransform="translate(760 10) rotate(145) scale(390 240)">
-        <stop stop-color="#7c3aed" stop-opacity=".2"/>
-        <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
-      </radialGradient>
-      <pattern id="stats-grid" width="28" height="28" patternUnits="userSpaceOnUse">
-        <path d="M28 0H0V28" fill="none" stroke="#ffffff" stroke-opacity=".025"/>
-      </pattern>
-      <filter id="stats-glow" x="-100%" y="-100%" width="300%" height="300%">
-        <feGaussianBlur stdDeviation="3" result="blur"/>
-        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
-    </defs>
     <style>
-      text{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
-      .eyebrow{fill:#a78bfa;font-size:11px;font-weight:700;letter-spacing:2px}
-      .heading{fill:#f8fafc;font-size:21px;font-weight:750;letter-spacing:-.3px}
-      .subheading{fill:#64748b;font-size:11px;letter-spacing:1px}
-      .metric{fill:#f8fafc;font-size:27px;font-weight:750;letter-spacing:-1px}
-      .label{fill:#8b93a7;font-size:9px;font-weight:700;letter-spacing:1.3px}
-      .language{fill:#dbe2ef;font-size:11px;font-weight:650}
-      .percentage{fill:#667085;font-size:9px;font-weight:600}
-      .live{animation:pulse 2.4s ease-in-out infinite}
-      @keyframes pulse{50%{opacity:.35}}
-      @media(prefers-reduced-motion:reduce){.live{animation:none}}
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+      .heading{fill:#f0f6fc;font-size:16px;font-weight:600}
+      .username{fill:#8b949e;font-size:12px}
+      .metric{fill:#a78bfa;font-size:25px;font-weight:650}
+      .label{fill:#8b949e;font-size:10px}
+      .section{fill:#c9d1d9;font-size:12px;font-weight:600}
+      .language{fill:#c9d1d9;font-size:10px}
+      .percentage{fill:#6e7681;font-size:9px}
     </style>
-    <rect x="1" y="1" width="958" height="292" rx="22" fill="url(#stats-background)" stroke="#7c3aed" stroke-opacity=".32"/>
-    <rect x="1" y="1" width="958" height="292" rx="22" fill="url(#stats-aura)"/>
-    <rect x="1" y="1" width="958" height="292" rx="22" fill="url(#stats-grid)"/>
-    <rect x="2" y="2" width="956" height="3" rx="1.5" fill="url(#stats-accent)" opacity=".9"/>
-    <g transform="translate(39 31)">
-      <rect width="38" height="38" rx="11" fill="#7c3aed" fill-opacity=".17" stroke="#a78bfa" stroke-opacity=".42"/>
-      <text x="19" y="25" text-anchor="middle" fill="#c4b5fd" font-size="14" font-weight="800">AP</text>
-      <text x="53" y="13" class="eyebrow">GITHUB // DEV SIGNAL</text>
-      <text x="53" y="35" class="heading">Abraão Paixão</text>
-    </g>
-    <g transform="translate(764 46)">
-      <circle class="live" cx="0" cy="0" r="7" fill="#22d3ee" fill-opacity=".16"/>
-      <circle cx="0" cy="0" r="3" fill="#22d3ee" filter="url(#stats-glow)"/>
-      <text x="14" y="4" class="subheading">FULL STACK · AO VIVO</text>
-    </g>
+    <rect x=".5" y=".5" width="899" height="229" rx="8" fill="#0d1117" stroke="#30363d"/>
+    <text x="28" y="35" class="heading">Abraão no GitHub</text>
+    <text x="872" y="35" text-anchor="end" class="username">@Abraao-SPX</text>
+    <line x1="28" y1="52" x2="872" y2="52" stroke="#21262d"/>
     
-        <g transform="translate(38 82)">
-          <rect width="281" height="91" rx="14" fill="#ffffff" fill-opacity=".035" stroke="#ffffff" stroke-opacity=".09"/>
-          <rect x="16" y="16" width="25" height="3" rx="1.5" fill="url(#stats-accent)"/>
-          <text x="16" y="57" class="metric">531</text>
-          <text x="16" y="77" class="label">CONTRIBUIÇÕES · 12 MESES</text>
+        <g transform="translate(55 74)">
+
+          <text y="27" class="metric">531</text>
+          <text y="48" class="label">Contribuições · 12 meses</text>
         </g>
-        <g transform="translate(333 82)">
-          <rect width="281" height="91" rx="14" fill="#ffffff" fill-opacity=".035" stroke="#ffffff" stroke-opacity=".09"/>
-          <rect x="16" y="16" width="25" height="3" rx="1.5" fill="url(#stats-accent)"/>
-          <text x="16" y="57" class="metric">4 dias</text>
-          <text x="16" y="77" class="label">SEQUÊNCIA ATUAL</text>
+        <g transform="translate(350 74)">
+          <line x1="-35" y1="0" x2="-35" y2="54" stroke="#30363d"/>
+          <text y="27" class="metric">4 dias</text>
+          <text y="48" class="label">Sequência atual</text>
         </g>
-        <g transform="translate(628 82)">
-          <rect width="281" height="91" rx="14" fill="#ffffff" fill-opacity=".035" stroke="#ffffff" stroke-opacity=".09"/>
-          <rect x="16" y="16" width="25" height="3" rx="1.5" fill="url(#stats-accent)"/>
-          <text x="16" y="57" class="metric">13</text>
-          <text x="16" y="77" class="label">REPOSITÓRIOS PÚBLICOS</text>
+        <g transform="translate(645 74)">
+          <line x1="-35" y1="0" x2="-35" y2="54" stroke="#30363d"/>
+          <text y="27" class="metric">13</text>
+          <text y="48" class="label">Repositórios públicos</text>
         </g>
-    <text x="39" y="198" class="eyebrow">LINGUAGENS EM DESTAQUE</text>
-    <rect x="39" y="211" width="882" height="8" rx="4" fill="#ffffff" fill-opacity=".045"/>
-    <rect x="39.0" y="211" width="403.6" height="8" rx="4" fill="#f7df1e"/><rect x="444.6" y="211" width="161.5" height="8" rx="4" fill="#3178c6"/><rect x="608.1" y="211" width="107.5" height="8" rx="4" fill="#e34f26"/><rect x="717.6" y="211" width="89.2" height="8" rx="4" fill="#f89820"/><rect x="808.7" y="211" width="112.3" height="8" rx="4" fill="#475569"/>
+    <text x="28" y="151" class="section">Linguagens mais usadas</text>
+    <rect x="28" y="169" width="844" height="7" fill="#21262d"/>
+    <rect x="28.0" y="169" width="386.2" height="7" fill="#f7df1e"/><rect x="415.2" y="169" width="154.5" height="7" fill="#3178c6"/><rect x="570.7" y="169" width="102.9" height="7" fill="#e34f26"/><rect x="674.6" y="169" width="85.3" height="7" fill="#f89820"/><rect x="760.9" y="169" width="111.1" height="7" fill="#475569"/>
     
-        <g transform="translate(39.0 246)">
-          <circle cx="5" cy="-4" r="4" fill="#f7df1e"/>
-          <text x="16" class="language">JavaScript</text>
-          <text x="16" y="17" class="percentage">45,8%</text>
+        <g transform="translate(28.0 202)">
+          <circle cx="4" cy="-3" r="3.5" fill="#f7df1e"/>
+          <text x="14" class="language">JavaScript</text>
+          <text x="14" y="15" class="percentage">45,8%</text>
         </g>
-        <g transform="translate(215.4 246)">
-          <circle cx="5" cy="-4" r="4" fill="#3178c6"/>
-          <text x="16" class="language">TypeScript</text>
-          <text x="16" y="17" class="percentage">18,3%</text>
+        <g transform="translate(196.8 202)">
+          <circle cx="4" cy="-3" r="3.5" fill="#3178c6"/>
+          <text x="14" class="language">TypeScript</text>
+          <text x="14" y="15" class="percentage">18,3%</text>
         </g>
-        <g transform="translate(391.8 246)">
-          <circle cx="5" cy="-4" r="4" fill="#e34f26"/>
-          <text x="16" class="language">HTML</text>
-          <text x="16" y="17" class="percentage">12,2%</text>
+        <g transform="translate(365.6 202)">
+          <circle cx="4" cy="-3" r="3.5" fill="#e34f26"/>
+          <text x="14" class="language">HTML</text>
+          <text x="14" y="15" class="percentage">12,2%</text>
         </g>
-        <g transform="translate(568.2 246)">
-          <circle cx="5" cy="-4" r="4" fill="#f89820"/>
-          <text x="16" class="language">Java</text>
-          <text x="16" y="17" class="percentage">10,1%</text>
+        <g transform="translate(534.4 202)">
+          <circle cx="4" cy="-3" r="3.5" fill="#f89820"/>
+          <text x="14" class="language">Java</text>
+          <text x="14" y="15" class="percentage">10,1%</text>
         </g>
-        <g transform="translate(744.6 246)">
-          <circle cx="5" cy="-4" r="4" fill="#475569"/>
-          <text x="16" class="language">Outras</text>
-          <text x="16" y="17" class="percentage">13,6%</text>
+        <g transform="translate(703.2 202)">
+          <circle cx="4" cy="-3" r="3.5" fill="#475569"/>
+          <text x="14" class="language">Outras</text>
+          <text x="14" y="15" class="percentage">13,6%</text>
         </g>
   </svg>

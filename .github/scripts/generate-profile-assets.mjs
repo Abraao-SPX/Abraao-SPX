@@ -146,115 +146,74 @@ function xml(value) {
     .replaceAll('"', "&quot;");
 }
 
-function sharedDefinitions(id) {
-  return `
-    <defs>
-      <linearGradient id="${id}-background" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#0b0d16"/>
-        <stop offset="0.52" stop-color="#111426"/>
-        <stop offset="1" stop-color="#0b1220"/>
-      </linearGradient>
-      <linearGradient id="${id}-accent" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="#7c3aed"/>
-        <stop offset="0.52" stop-color="#a855f7"/>
-        <stop offset="1" stop-color="#22d3ee"/>
-      </linearGradient>
-      <radialGradient id="${id}-aura" cx="0" cy="0" r="1" gradientTransform="translate(760 10) rotate(145) scale(390 240)">
-        <stop stop-color="#7c3aed" stop-opacity=".2"/>
-        <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
-      </radialGradient>
-      <pattern id="${id}-grid" width="28" height="28" patternUnits="userSpaceOnUse">
-        <path d="M28 0H0V28" fill="none" stroke="#ffffff" stroke-opacity=".025"/>
-      </pattern>
-      <filter id="${id}-glow" x="-100%" y="-100%" width="300%" height="300%">
-        <feGaussianBlur stdDeviation="3" result="blur"/>
-        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
-    </defs>`;
-}
-
 function renderStats({ user, languages, calendar }) {
   const { current } = calculateStreaks(calendar.days);
   const metrics = [
-    ["CONTRIBUIÇÕES · 12 MESES", calendar.total],
-    ["SEQUÊNCIA ATUAL", `${current} dias`],
-    ["REPOSITÓRIOS PÚBLICOS", user.public_repos],
+    ["Contribuições · 12 meses", calendar.total],
+    ["Sequência atual", `${current} dias`],
+    ["Repositórios públicos", user.public_repos],
   ];
 
-  const cards = metrics
+  const metricColumns = metrics
     .map(([label, value], index) => {
-      const x = 38 + index * 295;
+      const x = 55 + index * 295;
+      const divider = index
+        ? '<line x1="-35" y1="0" x2="-35" y2="54" stroke="#30363d"/>'
+        : "";
       return `
-        <g transform="translate(${x} 82)">
-          <rect width="281" height="91" rx="14" fill="#ffffff" fill-opacity=".035" stroke="#ffffff" stroke-opacity=".09"/>
-          <rect x="16" y="16" width="25" height="3" rx="1.5" fill="url(#stats-accent)"/>
-          <text x="16" y="57" class="metric">${xml(compactNumber(value))}</text>
-          <text x="16" y="77" class="label">${label}</text>
+        <g transform="translate(${x} 74)">${divider}
+          <text y="27" class="metric">${xml(compactNumber(value))}</text>
+          <text y="48" class="label">${label}</text>
         </g>`;
     })
     .join("");
 
-  let segmentX = 39;
-  const barWidth = 882;
+  let segmentX = 28;
+  const barWidth = 844;
   const languageSegments = languages
     .map((language, index) => {
       const width =
         index === languages.length - 1
-          ? 39 + barWidth - segmentX
+          ? 28 + barWidth - segmentX
           : Math.max((language.percentage / 100) * barWidth, 4);
-      const segment = `<rect x="${segmentX.toFixed(1)}" y="211" width="${width.toFixed(1)}" height="8" rx="4" fill="${language.color}"/>`;
-      segmentX += width + 2;
+      const segment = `<rect x="${segmentX.toFixed(1)}" y="169" width="${width.toFixed(1)}" height="7" fill="${language.color}"/>`;
+      segmentX += width + 1;
       return segment;
     })
     .join("");
 
   const languageLabels = languages
     .map((language, index) => {
-      const x = 39 + index * (882 / Math.max(languages.length, 1));
+      const x = 28 + index * (844 / Math.max(languages.length, 1));
       return `
-        <g transform="translate(${x.toFixed(1)} 246)">
-          <circle cx="5" cy="-4" r="4" fill="${language.color}"/>
-          <text x="16" class="language">${xml(language.name)}</text>
-          <text x="16" y="17" class="percentage">${language.percentage.toFixed(1).replace(".", ",")}%</text>
+        <g transform="translate(${x.toFixed(1)} 202)">
+          <circle cx="4" cy="-3" r="3.5" fill="${language.color}"/>
+          <text x="14" class="language">${xml(language.name)}</text>
+          <text x="14" y="15" class="percentage">${language.percentage.toFixed(1).replace(".", ",")}%</text>
         </g>`;
     })
     .join("");
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="960" height="294" viewBox="0 0 960 294" role="img" aria-labelledby="title description">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="230" viewBox="0 0 900 230" role="img" aria-labelledby="title description">
     <title id="title">Painel GitHub de Abraão Paixão</title>
     <desc id="description">Resumo de contribuições, sequência atual, repositórios e linguagens mais utilizadas.</desc>
-    ${sharedDefinitions("stats")}
     <style>
-      text{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
-      .eyebrow{fill:#a78bfa;font-size:11px;font-weight:700;letter-spacing:2px}
-      .heading{fill:#f8fafc;font-size:21px;font-weight:750;letter-spacing:-.3px}
-      .subheading{fill:#64748b;font-size:11px;letter-spacing:1px}
-      .metric{fill:#f8fafc;font-size:27px;font-weight:750;letter-spacing:-1px}
-      .label{fill:#8b93a7;font-size:9px;font-weight:700;letter-spacing:1.3px}
-      .language{fill:#dbe2ef;font-size:11px;font-weight:650}
-      .percentage{fill:#667085;font-size:9px;font-weight:600}
-      .live{animation:pulse 2.4s ease-in-out infinite}
-      @keyframes pulse{50%{opacity:.35}}
-      @media(prefers-reduced-motion:reduce){.live{animation:none}}
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+      .heading{fill:#f0f6fc;font-size:16px;font-weight:600}
+      .username{fill:#8b949e;font-size:12px}
+      .metric{fill:#a78bfa;font-size:25px;font-weight:650}
+      .label{fill:#8b949e;font-size:10px}
+      .section{fill:#c9d1d9;font-size:12px;font-weight:600}
+      .language{fill:#c9d1d9;font-size:10px}
+      .percentage{fill:#6e7681;font-size:9px}
     </style>
-    <rect x="1" y="1" width="958" height="292" rx="22" fill="url(#stats-background)" stroke="#7c3aed" stroke-opacity=".32"/>
-    <rect x="1" y="1" width="958" height="292" rx="22" fill="url(#stats-aura)"/>
-    <rect x="1" y="1" width="958" height="292" rx="22" fill="url(#stats-grid)"/>
-    <rect x="2" y="2" width="956" height="3" rx="1.5" fill="url(#stats-accent)" opacity=".9"/>
-    <g transform="translate(39 31)">
-      <rect width="38" height="38" rx="11" fill="#7c3aed" fill-opacity=".17" stroke="#a78bfa" stroke-opacity=".42"/>
-      <text x="19" y="25" text-anchor="middle" fill="#c4b5fd" font-size="14" font-weight="800">AP</text>
-      <text x="53" y="13" class="eyebrow">GITHUB // DEV SIGNAL</text>
-      <text x="53" y="35" class="heading">Abraão Paixão</text>
-    </g>
-    <g transform="translate(764 46)">
-      <circle class="live" cx="0" cy="0" r="7" fill="#22d3ee" fill-opacity=".16"/>
-      <circle cx="0" cy="0" r="3" fill="#22d3ee" filter="url(#stats-glow)"/>
-      <text x="14" y="4" class="subheading">FULL STACK · AO VIVO</text>
-    </g>
-    ${cards}
-    <text x="39" y="198" class="eyebrow">LINGUAGENS EM DESTAQUE</text>
-    <rect x="39" y="211" width="882" height="8" rx="4" fill="#ffffff" fill-opacity=".045"/>
+    <rect x=".5" y=".5" width="899" height="229" rx="8" fill="#0d1117" stroke="#30363d"/>
+    <text x="28" y="35" class="heading">Abraão no GitHub</text>
+    <text x="872" y="35" text-anchor="end" class="username">@${username}</text>
+    <line x1="28" y1="52" x2="872" y2="52" stroke="#21262d"/>
+    ${metricColumns}
+    <text x="28" y="151" class="section">Linguagens mais usadas</text>
+    <rect x="28" y="169" width="844" height="7" fill="#21262d"/>
     ${languageSegments}
     ${languageLabels}
   </svg>`;
@@ -262,11 +221,11 @@ function renderStats({ user, languages, calendar }) {
 
 function renderContributions({ days, total }) {
   const { current, longest } = calculateStreaks(days);
-  const cellColors = ["#20243a", "#34205f", "#5426a5", "#7c3aed", "#22d3ee"];
+  const cellColors = ["#21262d", "#2e1065", "#4c1d95", "#7c3aed", "#c4b5fd"];
   const start = new Date(`${days[0].date}T00:00:00Z`);
-  const heatmapX = 120;
-  const heatmapY = 91;
-  const step = 13;
+  const heatmapX = 112;
+  const heatmapY = 73;
+  const step = 12;
 
   const cells = days
     .map((day) => {
@@ -276,8 +235,7 @@ function renderContributions({ days, total }) {
       const weekday = date.getUTCDay();
       const x = heatmapX + week * step;
       const y = heatmapY + weekday * step;
-      const hotClass = day.level === 4 ? ' class="hot"' : "";
-      return `<rect${hotClass} x="${x}" y="${y}" width="9" height="9" rx="2.2" fill="${cellColors[day.level]}" data-date="${day.date}"/>`;
+      return `<rect x="${x}" y="${y}" width="9" height="9" rx="2" fill="${cellColors[day.level]}" data-date="${day.date}"/>`;
     })
     .join("");
 
@@ -290,66 +248,39 @@ function renderContributions({ days, total }) {
     if (date.getUTCDate() <= 7 && !shownMonths.has(key)) {
       const difference = Math.round((date - start) / 86_400_000);
       const x = heatmapX + Math.floor(difference / 7) * step;
-      if (x < 895) months.push(`<text x="${x}" y="79" class="month">${monthNames[date.getUTCMonth()]}</text>`);
+      if (x < 835) months.push(`<text x="${x}" y="64" class="month">${monthNames[date.getUTCMonth()]}</text>`);
       shownMonths.add(key);
     }
   }
 
   const legend = cellColors
-    .map((color, index) => `<rect x="${820 + index * 15}" y="236" width="9" height="9" rx="2" fill="${color}"${index === 4 ? ' filter="url(#contrib-glow)"' : ""}/>`)
+    .map((color, index) => `<rect x="${775 + index * 14}" y="180" width="9" height="9" rx="2" fill="${color}"/>`)
     .join("");
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="960" height="268" viewBox="0 0 960 268" role="img" aria-labelledby="title description">
-    <title id="title">Constelação de contribuições de Abraão Paixão</title>
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="205" viewBox="0 0 900 205" role="img" aria-labelledby="title description">
+    <title id="title">Contribuições de Abraão Paixão</title>
     <desc id="description">Mapa das contribuições realizadas nos últimos 365 dias.</desc>
-    ${sharedDefinitions("contrib")}
     <style>
-      text{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
-      .eyebrow{fill:#a78bfa;font-size:11px;font-weight:750;letter-spacing:2px}
-      .total{fill:#f8fafc;font-size:24px;font-weight:760;letter-spacing:-.5px}
-      .small{fill:#687189;font-size:9px;font-weight:650;letter-spacing:1px}
-      .month,.day{fill:#566078;font-size:8px;font-weight:650;letter-spacing:.6px}
-      .streak-value{fill:#e2e8f0;font-size:13px;font-weight:750}
-      .streak-label{fill:#646e84;font-size:8px;font-weight:700;letter-spacing:1px}
-      .hot{filter:url(#contrib-glow);animation:star 3s ease-in-out infinite}
-      .beam{animation:beam 7s ease-in-out infinite}
-      @keyframes star{50%{opacity:.55}}
-      @keyframes beam{0%,100%{opacity:.25}50%{opacity:.8}}
-      @media(prefers-reduced-motion:reduce){.hot,.beam{animation:none}}
+      text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+      .heading{fill:#f0f6fc;font-size:16px;font-weight:600}
+      .summary{fill:#8b949e;font-size:11px}
+      .month,.day{fill:#6e7681;font-size:8px}
+      .footer{fill:#8b949e;font-size:10px}
+      .legend{fill:#6e7681;font-size:9px}
     </style>
-    <rect x="1" y="1" width="958" height="266" rx="22" fill="url(#contrib-background)" stroke="#7c3aed" stroke-opacity=".32"/>
-    <rect x="1" y="1" width="958" height="266" rx="22" fill="url(#contrib-aura)"/>
-    <rect x="1" y="1" width="958" height="266" rx="22" fill="url(#contrib-grid)"/>
-    <rect x="2" y="2" width="956" height="3" rx="1.5" fill="url(#contrib-accent)" opacity=".9"/>
-    <g transform="translate(39 31)">
-      <path d="M0 13C9 1 19 1 28 13C19 25 9 25 0 13Z" fill="#7c3aed" fill-opacity=".16" stroke="#a78bfa" stroke-opacity=".35"/>
-      <circle cx="14" cy="13" r="4" fill="#22d3ee" filter="url(#contrib-glow)"/>
-      <text x="43" y="10" class="eyebrow">CONSTELAÇÃO DE CÓDIGO</text>
-      <text x="43" y="29" class="small">365 DIAS DE IDEIAS TRANSFORMADAS EM COMMITS</text>
-    </g>
-    <g transform="translate(778 29)">
-      <text x="143" y="22" text-anchor="end" class="total">${xml(compactNumber(total))}</text>
-      <text x="143" y="39" text-anchor="end" class="small">CONTRIBUIÇÕES</text>
-    </g>
-    <line class="beam" x1="39" y1="65" x2="921" y2="65" stroke="url(#contrib-accent)" stroke-width="1"/>
+    <rect x=".5" y=".5" width="899" height="204" rx="8" fill="#0d1117" stroke="#30363d"/>
+    <text x="28" y="34" class="heading">Contribuições</text>
+    <text x="872" y="34" text-anchor="end" class="summary">${xml(compactNumber(total))} no último ano</text>
+    <line x1="28" y1="49" x2="872" y2="49" stroke="#21262d"/>
     ${months.join("")}
-    <text x="79" y="111" class="day">SEG</text>
-    <text x="79" y="137" class="day">QUA</text>
-    <text x="79" y="163" class="day">SEX</text>
+    <text x="82" y="92" class="day">SEG</text>
+    <text x="82" y="116" class="day">QUA</text>
+    <text x="82" y="140" class="day">SEX</text>
     ${cells}
-    <g transform="translate(39 217)">
-      <rect width="174" height="32" rx="10" fill="#ffffff" fill-opacity=".035" stroke="#ffffff" stroke-opacity=".075"/>
-      <text x="14" y="14" class="streak-label">SEQUÊNCIA ATUAL</text>
-      <text x="160" y="21" text-anchor="end" class="streak-value">${current} dias</text>
-    </g>
-    <g transform="translate(224 217)">
-      <rect width="174" height="32" rx="10" fill="#ffffff" fill-opacity=".035" stroke="#ffffff" stroke-opacity=".075"/>
-      <text x="14" y="14" class="streak-label">MELHOR SEQUÊNCIA</text>
-      <text x="160" y="21" text-anchor="end" class="streak-value">${longest} dias</text>
-    </g>
-    <text x="746" y="244" class="small">MENOS</text>
+    <text x="28" y="188" class="footer">Sequência atual: ${current} dias  ·  Maior sequência: ${longest} dias</text>
+    <text x="735" y="188" class="legend">menos</text>
     ${legend}
-    <text x="899" y="244" class="small">MAIS</text>
+    <text x="871" y="188" text-anchor="end" class="legend">mais</text>
   </svg>`;
 }
 
