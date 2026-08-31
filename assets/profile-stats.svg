@@ -17,11 +17,11 @@
     <line x1="28" y1="52" x2="872" y2="52" stroke="#21262d"/>
     
         <g transform="translate(55 74)">
-          <text y="27" class="metric">558</text>
+          <text y="27" class="metric">573</text>
           <text y="48" class="label">Contribuições · 12 meses</text>
         </g>
         <g transform="translate(350 74)"><line x1="-35" y1="0" x2="-35" y2="54" stroke="#30363d"/>
-          <text y="27" class="metric">1 dias</text>
+          <text y="27" class="metric">2 dias</text>
           <text y="48" class="label">Sequência atual</text>
         </g>
         <g transform="translate(645 74)"><line x1="-35" y1="0" x2="-35" y2="54" stroke="#30363d"/>
