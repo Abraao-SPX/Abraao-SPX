@@ -17,44 +17,44 @@
     <line x1="28" y1="52" x2="872" y2="52" stroke="#21262d"/>
     
         <g transform="translate(55 74)">
-          <text y="27" class="metric">752</text>
+          <text y="27" class="metric">760</text>
           <text y="48" class="label">Contribuições · 12 meses</text>
         </g>
         <g transform="translate(350 74)"><line x1="-35" y1="0" x2="-35" y2="54" stroke="#30363d"/>
-          <text y="27" class="metric">0 dias</text>
+          <text y="27" class="metric">2 dias</text>
           <text y="48" class="label">Sequência atual</text>
         </g>
         <g transform="translate(645 74)"><line x1="-35" y1="0" x2="-35" y2="54" stroke="#30363d"/>
-          <text y="27" class="metric">14</text>
+          <text y="27" class="metric">15</text>
           <text y="48" class="label">Repositórios públicos</text>
         </g>
     <text x="28" y="151" class="section">Linguagens mais usadas</text>
     <rect x="28" y="169" width="844" height="7" fill="#21262d"/>
-    <rect x="28.0" y="169" width="271.1" height="7" fill="#f7df1e"/><rect x="300.1" y="169" width="208.9" height="7" fill="#3178c6"/><rect x="510.0" y="169" width="132.1" height="7" fill="#3776ab"/><rect x="643.1" y="169" width="93.4" height="7" fill="#663399"/><rect x="737.4" y="169" width="134.6" height="7" fill="#475569"/>
+    <rect x="28.0" y="169" width="227.0" height="7" fill="#3776ab"/><rect x="256.0" y="169" width="213.4" height="7" fill="#3178c6"/><rect x="470.4" y="169" width="208.8" height="7" fill="#f7df1e"/><rect x="680.3" y="169" width="72.2" height="7" fill="#e34f26"/><rect x="753.5" y="169" width="118.5" height="7" fill="#475569"/>
     
         <g transform="translate(28.0 202)">
-          <circle cx="4" cy="-3" r="3.5" fill="#f7df1e"/>
-          <text x="14" class="language">JavaScript</text>
-          <text x="14" y="15" class="percentage">32,1%</text>
+          <circle cx="4" cy="-3" r="3.5" fill="#3776ab"/>
+          <text x="14" class="language">Python</text>
+          <text x="14" y="15" class="percentage">26,9%</text>
         </g>
         <g transform="translate(196.8 202)">
           <circle cx="4" cy="-3" r="3.5" fill="#3178c6"/>
           <text x="14" class="language">TypeScript</text>
-          <text x="14" y="15" class="percentage">24,7%</text>
+          <text x="14" y="15" class="percentage">25,3%</text>
         </g>
         <g transform="translate(365.6 202)">
-          <circle cx="4" cy="-3" r="3.5" fill="#3776ab"/>
-          <text x="14" class="language">Python</text>
-          <text x="14" y="15" class="percentage">15,6%</text>
+          <circle cx="4" cy="-3" r="3.5" fill="#f7df1e"/>
+          <text x="14" class="language">JavaScript</text>
+          <text x="14" y="15" class="percentage">24,7%</text>
         </g>
         <g transform="translate(534.4 202)">
-          <circle cx="4" cy="-3" r="3.5" fill="#663399"/>
-          <text x="14" class="language">CSS</text>
-          <text x="14" y="15" class="percentage">11,1%</text>
+          <circle cx="4" cy="-3" r="3.5" fill="#e34f26"/>
+          <text x="14" class="language">HTML</text>
+          <text x="14" y="15" class="percentage">8,6%</text>
         </g>
         <g transform="translate(703.2 202)">
           <circle cx="4" cy="-3" r="3.5" fill="#475569"/>
           <text x="14" class="language">Outras</text>
-          <text x="14" y="15" class="percentage">16,4%</text>
+          <text x="14" y="15" class="percentage">14,5%</text>
         </g>
   </svg>
