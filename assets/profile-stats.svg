@@ -21,7 +21,7 @@
           <text y="48" class="label">Contribuições · 12 meses</text>
         </g>
         <g transform="translate(350 74)"><line x1="-35" y1="0" x2="-35" y2="54" stroke="#30363d"/>
-          <text y="27" class="metric">2 dias</text>
+          <text y="27" class="metric">0 dias</text>
           <text y="48" class="label">Sequência atual</text>
         </g>
         <g transform="translate(645 74)"><line x1="-35" y1="0" x2="-35" y2="54" stroke="#30363d"/>
